@@ -1,4 +1,5 @@
 from email import message
+from multiprocessing.connection import wait
 import discord
 from discord.ext import commands
 
@@ -8,10 +9,14 @@ intents=discord.Intents.all()
 prefix = '!'
 bot = commands.Bot(command_prefix=prefix, intents=intents)
 
-
 @bot.event
-async def on_ready():
-    print("Bora pro abate! ")
+async def on_message(message):
+    if message.author == bot.user:
+        return
+    else:
+        a = message.content
+        await message.channel.send(a)
+        
 
 
 @bot.command(name='hello')
@@ -35,9 +40,15 @@ async def msg(message):
         i+=1
 
 @bot.command(name='kk')
-async def a(ctx, message):
-    a = message.content
-    await message.chanel.send(a)
+async def a(ctx):
+    a = ctx.message.content
+    await ctx.send(a)
+
+@bot.command(name='sendto')
+async def mand(ctx):
+    await ctx.send('HELLO')
+
+
 
 
 
