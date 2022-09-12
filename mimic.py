@@ -52,4 +52,4 @@ async def mand(ctx):
 
 
 
-bot.run("MTAxNDI0MzI4NzYwMDczNDIzOA.GDtcnP.7Cul4iAoO_bAIscuoA2I5QY_5WULY5azaAWOXg") 
+bot.run("") 
